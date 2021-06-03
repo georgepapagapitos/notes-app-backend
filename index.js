@@ -49,7 +49,7 @@ app.post('/api/notes', (request, response, next) => {
     content: body.content,
     important: body.important || false,
     date: new Date()
-  })
+  });
   note
     .save()
     .then(savedNote => savedNote.toJSON())
@@ -72,7 +72,7 @@ app.put('/api/notes/:id', (request, response, next) => {
   const note = {
     content: body.content,
     important: body.important
-  }
+  };
   Note.findByIdAndUpdate(request.params.id, note, { new: true })
     .then(updatedNote => {
       response.json(updatedNote);
@@ -83,7 +83,7 @@ app.put('/api/notes/:id', (request, response, next) => {
 // middleware to respond to unknown endpoints
 const unknownEndpoint = (request, response) => {
   response.status(404).send({ error: 'unknown endpoint' });
-}
+};
 app.use(unknownEndpoint);
 // end middleware
 
@@ -96,7 +96,7 @@ const errorHandler = (error, request, response, next) => {
     return response.status(400).json({ error: error.message });
   }
   next(error);
-}
+};
 app.use(errorHandler);
 // end middleware
 
