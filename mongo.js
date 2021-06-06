@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 if (process.argv.length < 3) {
-  console.log(`Please provide the password as an argument: node mongo.js <password>`);
+  console.log('Please provide the password as an argument: node mongo.js <password>');
   process.exit(1);
 }
 
-const password = process.argv[2];
+// const password = process.argv[2];
 
 const url = process.env.DB_CONNECTION_URL;
 
@@ -32,7 +32,7 @@ const Note = mongoose.model('Note', noteSchema);
 
 Note.find({ important: true }).then(result => {
   result.forEach(note => {
-    console.log(note)
-  })
-  mongoose.connection.close()
-})
+    console.log(note);
+  });
+  mongoose.connection.close();
+});
