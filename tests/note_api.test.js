@@ -87,14 +87,14 @@ describe('adding a new note', () => {
     );
   });
 
-  test('fails with status 400 if data is invalid', async () => {
+  test('fails with status 401 if data is invalid', async () => {
     const newNote = {
       important: true
     };
     await api
       .post('/api/notes')
       .send(newNote)
-      .expect(400);
+      .expect(401);
 
     const notesAtEnd = await notesInDb();
     expect(notesAtEnd).toHaveLength(initialNotes.length);
