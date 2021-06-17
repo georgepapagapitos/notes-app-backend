@@ -11,8 +11,6 @@ const notesRouter = require('./controllers/notes');
 const usersRouter = require('./controllers/users');
 const loginRouter = require('./controllers/login');
 
-logger.info('connecting to', config.DB_CONNECTION_URL);
-
 mongoose.connect(config.DB_CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
   .then(() => {
     logger.info('connected to MongoDB');
