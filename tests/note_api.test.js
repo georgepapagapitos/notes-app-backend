@@ -132,7 +132,7 @@ describe('where there is initially one user in db', () => {
   test('creation succeeds with a fresh username', async () => {
     const usersAtStart = await usersInDb();
     const newUser = {
-      username: 'goodboy',
+      username: 'gpapagapitos',
       name: 'George Papagapitos',
       password: 'password',
     };
